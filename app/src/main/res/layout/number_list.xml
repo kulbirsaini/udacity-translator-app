@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/englishTextView"
+        style="@style/EnglishStyle"
+        android:background="@color/category_numbers" />
+
+    <TextView
+        android:id="@+id/originalTextView"
+        style="@style/OriginalStyle"
+        android:background="@color/category_numbers" />
+
+    <ImageView
+        android:id="@+id/playAudio"
+        style="@style/PlayAudioIcon" />
+
+    <Space
+        android:id="@+id/space"
+        style="@style/Spacer" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
