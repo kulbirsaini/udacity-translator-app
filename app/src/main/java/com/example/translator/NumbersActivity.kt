@@ -7,17 +7,13 @@ import kotlinx.android.synthetic.main.activity_numbers.*
 
 class NumbersActivity : AppCompatActivity() {
 
-    private val englishWords = arrayListOf("one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten")
-    private val originalWords = arrayListOf("एक", "दो", "तीन", "चार", "पांच", "छह", "सात", "आठ", "नौ", "दस")
-    private var numbers = arrayListOf<TranslatedItem>()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_numbers)
 
-        englishWords.zip(originalWords).forEach {
-            numbers.add(TranslatedItem(it.first, it.second))
-        }
+        val englishWords = arrayListOf("one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten")
+        val originalWords = arrayListOf("एक", "दो", "तीन", "चार", "पांच", "छह", "सात", "आठ", "नौ", "दस")
+        val numbers = Utility.mergeToTranslatedItem(englishWords, originalWords)
 
         numbersLayout.apply {
             layoutManager = LinearLayoutManager(this@NumbersActivity)
