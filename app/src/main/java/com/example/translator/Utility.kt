@@ -4,11 +4,19 @@ class Utility {
     companion object {
         fun mergeToTranslatedItem(
             englishWords: ArrayList<String>,
-            originalWords: ArrayList<String>
+            originalWords: ArrayList<String>,
+            images: ArrayList<Int> = ArrayList()
         ): ArrayList<TranslatedItem> {
             val items = ArrayList<TranslatedItem>()
-            englishWords.zip(originalWords).map {
-                items.add(TranslatedItem(it.first, it.second))
+
+            if (images.size == 0) {
+                englishWords.zip(originalWords).forEach {
+                    items.add(TranslatedItem(it.first, it.second))
+                }
+            } else {
+                englishWords.zip(originalWords).zip(images).forEach {
+                    items.add(TranslatedItem(it.first.first, it.first.second, it.second))
+                }
             }
 
             return items

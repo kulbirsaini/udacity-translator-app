@@ -17,7 +17,7 @@ class PhrasesActivity : AppCompatActivity() {
 
         phrasesLayout.apply {
             layoutManager = LinearLayoutManager(this@PhrasesActivity)
-            adapter = TranslatedItemsAdapter(phrases, R.layout.phrase_list)
+            adapter = TranslatedItemsAdapter(phrases, R.layout.phrase_list, R.color.category_phrases)
         }
     }
 }

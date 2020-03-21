@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/listLayout"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/list_item_height"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/avatar"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/main_item_height"
+        android:contentDescription="@string/avatar_alt"
+        android:scaleType="center"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars[0]" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/main_item_height"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toStartOf="@+id/playAudio"
+        app:layout_constraintHorizontal_weight="6"
+        app:layout_constraintStart_toEndOf="@+id/avatar"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/englishTextView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/text_view_height"
+            android:paddingStart="32dp"
+            android:paddingTop="16dp"
+            android:paddingEnd="32dp"
+            android:textAlignment="viewStart"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@android:color/primary_text_dark" />
+
+        <TextView
+            android:id="@+id/originalTextView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/text_view_height"
+            android:paddingStart="32dp"
+            android:paddingEnd="32dp"
+            android:paddingBottom="16dp"
+            android:textAlignment="viewStart"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@android:color/primary_text_dark"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/playAudio"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/main_item_height"
+        android:contentDescription="@string/play_alt"
+        android:scaleType="center"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_volume_up_black_24dp" />
+
+    <TextView
+        android:id="@+id/spacerLeft"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/spacer_height"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/spacerRight"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/avatar" />
+
+    <TextView
+        android:id="@+id/spacerRight"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/spacer_height"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="7"
+        app:layout_constraintStart_toEndOf="@+id/spacerLeft"
+        app:layout_constraintTop_toBottomOf="@id/playAudio" />
+</androidx.constraintlayout.widget.ConstraintLayout>
