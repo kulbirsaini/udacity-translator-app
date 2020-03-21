@@ -48,9 +48,12 @@ class TranslatedItemsAdapter(private val items: ArrayList<TranslatedItem>,
 
         // If we have a sound file, we need to bind the on click listener to play the audio
         if (item.soundId > 0) {
+            holder.itemView.playAudio.visibility = View.VISIBLE
             holder.itemView.playAudio.setOnClickListener {
                 MediaPlayer.create(context, item.soundId).start()
             }
+        } else {
+            holder.itemView.playAudio.visibility = View.GONE
         }
 
         // Invert color for spacers for last items for a feel of continuity
@@ -59,6 +62,5 @@ class TranslatedItemsAdapter(private val items: ArrayList<TranslatedItem>,
         } else {
             holder.itemView.spacerRight.setBackgroundColor(Color.parseColor("#FFFFFF"))
         }
-
     }
 }

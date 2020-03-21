@@ -5,8 +5,8 @@ class Utility {
         fun mergeToTranslatedItem(
             englishWords: ArrayList<String>,
             originalWords: ArrayList<String>,
-            sounds: ArrayList<Int> = ArrayList(),
-            images: ArrayList<Int> = ArrayList()
+            images: ArrayList<Int> = ArrayList(),
+            sounds: ArrayList<Int> = ArrayList()
         ): ArrayList<TranslatedItem> {
             val items = ArrayList<TranslatedItem>()
             val maxImageIndex = images.size - 1
