@@ -4,4 +4,5 @@
     <dimen name="spacer_height">2dp</dimen>
     <dimen name="text_view_height">48dp</dimen>
     <dimen name="main_item_height">96dp</dimen>
+    <dimen name="play_audio_icon_size">48dp</dimen>
 </resources>
