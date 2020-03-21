@@ -5,18 +5,18 @@ class Utility {
         fun mergeToTranslatedItem(
             englishWords: ArrayList<String>,
             originalWords: ArrayList<String>,
+            sounds: ArrayList<Int> = ArrayList(),
             images: ArrayList<Int> = ArrayList()
         ): ArrayList<TranslatedItem> {
             val items = ArrayList<TranslatedItem>()
+            val maxImageIndex = images.size - 1
+            val maxSoundIndex = sounds.size - 1
 
-            if (images.size == 0) {
-                englishWords.zip(originalWords).forEach {
-                    items.add(TranslatedItem(it.first, it.second))
-                }
-            } else {
-                englishWords.zip(originalWords).zip(images).forEach {
-                    items.add(TranslatedItem(it.first.first, it.first.second, it.second))
-                }
+            for (index in 0 until englishWords.size) {
+                val image = if (index <= maxImageIndex) images[index] else 0
+                val sound = if (index <= maxSoundIndex) sounds[index] else 0
+
+                items.add(TranslatedItem(englishWords[index], originalWords[index], image, sound))
             }
 
             return items

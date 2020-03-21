@@ -18,7 +18,7 @@ class ColorsActivity : AppCompatActivity() {
 
         activityLayout.apply {
             layoutManager = LinearLayoutManager(this@ColorsActivity)
-            adapter = TranslatedItemsAdapter(colors, R.layout.list_item, R.color.category_colors)
+            adapter = TranslatedItemsAdapter(colors, R.layout.list_item, R.color.category_colors, this@ColorsActivity)
         }
     }
 }

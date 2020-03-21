@@ -18,7 +18,7 @@ class FamilyMembersActivity : AppCompatActivity() {
 
         activityLayout.apply {
             layoutManager = LinearLayoutManager(this@FamilyMembersActivity)
-            adapter = TranslatedItemsAdapter(familyMembers, R.layout.list_item, R.color.category_family_member)
+            adapter = TranslatedItemsAdapter(familyMembers, R.layout.list_item, R.color.category_family_member, this@FamilyMembersActivity)
         }
     }
 }
