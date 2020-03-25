@@ -2,23 +2,26 @@ package com.example.translator
 
 import android.content.Context
 import android.graphics.Color
-import android.media.MediaPlayer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.list_item.view.*
 
-class TranslatedItemsAdapter(private val items: ArrayList<TranslatedItem>,
-                             private val layoutId: Int,
-                             private val backgroundColor: Int, private val context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class TranslatedItemsAdapter(
+    private val items: ArrayList<TranslatedItem>,
+    private val backgroundColor: Int,
+    private val context: Context,
+    private val activityName: String) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
+    // New class for RecyclerView.ViewHolder since that's just an abstract
     class MyRecyclerViewHolder (view: View) : RecyclerView.ViewHolder(view)
 
+    // Implement item count function
     override fun getItemCount() = items.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = MyRecyclerViewHolder(
-        LayoutInflater.from(parent.context).inflate(layoutId, parent, false)
+        LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
     )
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -50,7 +53,12 @@ class TranslatedItemsAdapter(private val items: ArrayList<TranslatedItem>,
         if (item.soundId > 0) {
             holder.itemView.playAudio.visibility = View.VISIBLE
             holder.itemView.playAudio.setOnClickListener {
-                MediaPlayer.create(context, item.soundId).start()
+                when (activityName) {
+                    "ColorsActivity" -> (context as ColorsActivity).setAudio(item.soundId)
+                    "FamilyMembersActivity" -> (context as FamilyMembersActivity).setAudio(item.soundId)
+                    "NumbersActivity" -> (context as NumbersActivity).setAudio(item.soundId)
+                    "PhrasesActivity" -> (context as PhrasesActivity).setAudio(item.soundId)
+                }
             }
         } else {
             holder.itemView.playAudio.visibility = View.GONE

@@ -1,11 +1,10 @@
 package com.example.translator
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_list_container.*
 
-class NumbersActivity : AppCompatActivity() {
+class NumbersActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +19,7 @@ class NumbersActivity : AppCompatActivity() {
 
         activityLayout.apply {
             layoutManager = LinearLayoutManager(this@NumbersActivity)
-            adapter = TranslatedItemsAdapter(numbers, R.layout.list_item, R.color.category_numbers, this@NumbersActivity)
+            adapter = TranslatedItemsAdapter(numbers, R.color.category_numbers, this@NumbersActivity, NumbersActivity::class.java.simpleName)
         }
     }
 }
