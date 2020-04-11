@@ -182,18 +182,6 @@ class ListFragment: Fragment(), AudioManager.OnAudioFocusChangeListener {
     override fun onPause() {
         super.onPause()
         Log.e("TransLog", "onPause")
-        mPlayer?.pause()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.e("TransLog", "onResume")
-        mPlayer?.start()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.e("TransLog", "onDestroy")
         this.releaseMediaPlayerAndAbandonAudioFocus()
     }
 
